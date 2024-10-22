@@ -1,7 +1,8 @@
 const express = require('express');
-const LessorController = require('../controllers/lessorController');
 const router = express.Router();
+const LessorController = require('../controllers/LessorController');
 
+// rutas de arrendadores
 router.post('/signup', LessorController.signup);
 router.post('/login', LessorController.login);
 

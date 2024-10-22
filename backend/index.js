@@ -1,19 +1,17 @@
 const express = require('express');
 const cors = require('cors');
-const apartmentsRoutes = require('./routes/apartmentRoutes');
 const lessorRoutes = require('./routes/lessorRoutes');
+const apartmentRoutes = require('./routes/apartmentRoutes');
 
-// Crear aplicación express
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Importar las rutas
-app.use('/apartments', apartmentsRoutes);  // Rutas para los apartamentos
-app.use('/lessors', lessorRoutes);  // Rutas para los arrendadores
+//usar las rutas
+app.use('/lessors', lessorRoutes);
+app.use('/apartments', apartmentRoutes);
 
-// Iniciar el servidor
 const portconnect = 3001;
 app.listen(portconnect, () => {
-    console.log(`Servidor inicializando en http://localhost:${portconnect}`);
+    console.log(`Servidor ejecutandose en: http://localhost:${portconnect}`);
 });
