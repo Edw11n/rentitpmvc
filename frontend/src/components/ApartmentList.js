@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ApartmentListController from '../../controllers/apartmentlistController';
-import '../../styles/apartments.css';
+import ApartmentListController from '../apis/apartmentlistController';
+import '../styles/apartments.css';
 
 function ApartmentList() {
     const [controller] = useState(new ApartmentListController());
@@ -34,34 +34,34 @@ function ApartmentList() {
             ) : apartmentList.length > 0 ? (
                 apartmentList.map((apartment) => (
                     <div
-                        key={apartment.id_apartamento || apartment.Lessor_email}
-                        className={`apartment-item-map ${selectedApartment === apartment.id_apartamento ? 'selected' : ''}`}
+                        key={apartment.id_apt || apartment.user_id }
+                        className={`apartment-item-map ${selectedApartment === apartment.id_apt ? 'selected' : ''}`}
                     >
                         <div className="apartment-info">
                             <h3
                                 className="apartment-title"
-                                onClick={() => toggleApartmentDetails(apartment.id_apartamento)} // Click solo en el título
+                                onClick={() => toggleApartmentDetails(apartment.id_apt)} // Click solo en el título
                             >
-                                {apartment.barrio_apartamento}
+                                {apartment.barrio}
                             </h3>
                             <p
                                 className="apartment-address"
-                                onClick={() => toggleApartmentDetails(apartment.id_apartamento)} // Click solo en la dirección
+                                onClick={() => toggleApartmentDetails(apartment.id_apt)} // Click solo en la dirección
                             >
-                                {apartment.direccion_apartamento}
+                                {apartment.direccion_apt}
                             </p>
                         </div>
 
                         {/* Mostrar información adicional si el apartamento está seleccionado */}
-                        {selectedApartment === apartment.id_apartamento && (
+                        {selectedApartment === apartment.id_apt && (
                             <div className="apartment-details">
                                 <p className="details-header">Detalles del apartamento:</p>
-                                <p>Información adicional: {apartment.info_adicional_apartamento}</p>
+                                <p>Información adicional: {apartment.info_add_apt}</p>
                                 <p><i>Ver imágenes</i></p>
                                 <p className="lessor-info-header"><b>Información del arrendador</b></p>
-                                <p>Arrendador: {apartment.Lessor_name} {apartment.Lessor_lastname}</p>
-                                <p>Email: {apartment.Lessor_email}</p>
-                                <p>Teléfono: {apartment.Lessor_phonenumber}</p>
+                                <p>Arrendador: {apartment.user_name} {apartment.user_lastname}</p>
+                                <p>Email: {apartment.user_email}</p>
+                                <p>Teléfono: {apartment.user_phonenumber}</p>
                             </div>
                         )}
                     </div>

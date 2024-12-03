@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
-import ApartmentFormController from '../../controllers/apartmentformController'; 
-import '../../styles/apartments.css';
+import { UserContext } from '../contexts/UserContext';
+import ApartmentFormController from '../apis/apartmentformController'; 
+import ManageController from '../apis/manageController';
+import '../styles/apartments.css';
 
 function ApartmentForm() {
     const { user } = useContext(UserContext);
@@ -18,6 +19,7 @@ function ApartmentForm() {
         controller.setApartmentData({ barrio, direccion, latitud, longitud, addInfo });
         try {
             const successMessage = await controller.submitApartment();
+            
             setMessage(successMessage);
             // Limpiar formulario después de enviar
             setBarrio('');

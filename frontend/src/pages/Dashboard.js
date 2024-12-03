@@ -1,7 +1,7 @@
 import React from "react";
 import ApartmentForm from "../components/ApartmentForm";
 import Manage from '../components/Manage';
-import '../../styles/homes.css';
+import '../styles/homes.css';
 
 function Dashboard() {
     return (

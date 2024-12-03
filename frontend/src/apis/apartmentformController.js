@@ -30,7 +30,7 @@ class ApartmentFormController {
                 latitud,
                 longitud,
                 addInfo,
-                Lessor_email: this.user.email,
+                user_email: this.user.email,
             });
             return 'Apartamento añadido exitosamente';
         } catch (error) {

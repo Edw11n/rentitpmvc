@@ -16,12 +16,15 @@
     font-size: 24px; /* Tamaño del icono */
     color: black; /* Color del icono */
 }
+
 .exit-icon:hover {
     color: red;
 }
+
 .exit-icon:active {
     color: #4f2222;
 }
+
 .div-container {
     background-color: #ffffff; /* Fondo blanco para el formulario */
     padding: 40px;
@@ -71,4 +74,21 @@ button:hover {
 .message {
     color: green; /* Color del mensaje */
     margin-top: 10px; /* Margen superior */
+}
+
+/* Nueva regla para los radios */
+.radio-container {
+    display: flex;
+    justify-content: space-between; /* Asegura que los radios se distribuyan de manera uniforme */
+    margin-top: 10px; /* Espacio entre los radios y el formulario */
+}
+
+label {
+    display: flex;
+    align-items: center;
+    margin: 0 10px; /* Espacio entre los labels */
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Espacio entre el radio y su texto */
 }

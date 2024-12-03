@@ -1,23 +1,21 @@
 import Axios from "axios";
-
 export const loginUser = async ({ email, password, setUser }) => {
     if (!email || !password) {
         return { success: false, message: 'Por favor rellene todos los campos' };
     }
-
     try {
         const response = await Axios.post('http://localhost:3001/lessors/login', {
             email,
             password
         });
-
-        const { Lessor_name, Lessor_lastname, Lessor_email, Lessor_phonenumber } = response.data;
-
+        const { user_id, user_name, user_lastname, user_email, user_phonenumber, user_rol } = response.data;
         setUser({
-            nombre: Lessor_name,
-            apellido: Lessor_lastname,
-            email: Lessor_email,
-            telefono: Lessor_phonenumber
+            id: user_id,
+            nombre: user_name,
+            apellido: user_lastname,
+            email: user_email,
+            telefono: user_phonenumber,
+            rolId: user_rol
         });
         return { success: true };
     } catch (error) {

@@ -1,11 +1,21 @@
 import React from "react";
-import '../../styles/modals.css';
-import JoinController from '../../controllers/joinController';
+import '../styles/modals.css';
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function Join({ onClose }) {
-    const { goToSignup, goToLogin } = JoinController(onClose); // Utiliza el controlador
+    const navigate = useNavigate();
+
+    const goToSignup = () => {
+        navigate('/signup');
+        onClose();
+    };
+
+    const goToLogin = () => {
+        navigate('/login');
+        onClose();
+    };
 
     return (
         <div className="join">

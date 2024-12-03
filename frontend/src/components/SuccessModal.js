@@ -1,11 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/modals.css'; 
-import SuccessModalController from '../../controllers/sucessmodalController'; 
+import { useNavigate } from 'react-router-dom';
+import '../styles/modals.css'; 
 
 function SuccessModal({ message }) {
-    const { goToLogin } = SuccessModalController(); // Utiliza el controlador
+    const navigate = useNavigate();
+
+    const goToLogin = () => {
+        navigate('/login');
+    };
 
     return (
         <div className="modal-overlay">
@@ -20,3 +24,4 @@ function SuccessModal({ message }) {
 }
 
 export default SuccessModal;
+

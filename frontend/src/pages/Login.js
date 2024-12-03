@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from '../../controllers/loginController'; // Importa el controlador
-import { UserContext } from "../../contexts/UserContext";
-import '../../styles/log.css';
+import { loginUser } from '../apis/loginController'; // Importa el controlador
+import { UserContext } from "../contexts/UserContext";
+import '../styles/log.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 

@@ -10,7 +10,9 @@ const ProtectedRoute = ({ children }) => {
     if (!user) {
         return <Navigate to="/login" replace />;
     }
-
+    if (user.rolId === 1){
+        return <Navigate to="/" replace />;
+    }
     // Si hay usuario, renderiza los hijos (la ruta protegida)
     return children;
 };

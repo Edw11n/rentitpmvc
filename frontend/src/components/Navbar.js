@@ -1,18 +1,28 @@
-import React from 'react';
-import '../../styles/navbar.css';
+import React, { useContext } from 'react';
+import '../styles/navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import NavbarController from '../../controllers/navbarController';
+import { UserContext } from '../contexts/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar({ goToJoin, setShowAccount }) {
-    const { user, goToHome, handleUserClick } = NavbarController(setShowAccount, goToJoin); // Utiliza el controlador
+    const navigate = useNavigate();
+    const { user } = useContext(UserContext);
+
+    const goToHome = () => {
+        navigate('/');
+    };
+
+    const handleUserClick = () => {
+        setShowAccount(prev => !prev);
+    };
 
     return (
         <nav className='navbar'>
             <h1 className='title' onClick={goToHome}>CampusHousing Mocoa</h1>
             {!user ? (
                 <div className='navbar-join'>
-                    <p className='navbar-join-click' onClick={goToJoin}>Eres propietario?</p>
+                    <p className='navbar-join-click' onClick={goToJoin}>Inicia sesión aquí</p>
                 </div>
             ) : (
                 <div className='dash'>

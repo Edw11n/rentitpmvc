@@ -5,7 +5,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'wasd', 
-    database: 'rentitp',
+    database: 'rentitpdb',
     port: 3306
 });
 

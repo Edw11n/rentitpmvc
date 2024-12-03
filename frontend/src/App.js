@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { UserProvider } from './contexts/UserContext';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './views/pages/Home';
-import Signup from './views/pages/Signup';
-import Login from './views/pages/Login';
-import Dashboard from './views/pages/Dashboard';
-import Navbar from './views/components/Navbar';
-import Account from './views/components/Account';
-import Join from './views/components/Join';
+import Home from './pages/Home';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Navbar from './components/Navbar';
+import Account from './components/Account';
+import Join from './components/Join';
 import ProtectedRoute from './contexts/ProtectedRoute';
-import AppController from './controllers/AppController';
 import './App.css';
 
 function App() {
-    const {
-        showJoin,
-        showAccount,
-        toggleJoin,
-        toggleAccount,
-    } = AppController(); // Utiliza el controlador
+    const [showJoin, setShowJoin] = useState(false);
+    const [showAccount, setShowAccount] = useState(false);
+
+    const toggleJoin = () => setShowJoin(prev => !prev);
+    const toggleAccount = () => setShowAccount(prev => !prev);
 
     return (
         <UserProvider>
