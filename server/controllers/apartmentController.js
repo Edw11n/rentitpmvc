@@ -2,17 +2,14 @@ const Apartment = require('../models/ApartmentModel');
 
 // Controlador para agregar un nuevo apartamento
 exports.addApartment = (req, res) => {
-    // Extraer datos del cuerpo de la solicitud
     const { barrio, direccion, latitud, longitud, addInfo, user_email } = req.body;
-    
     Apartment.addApartment({ barrio, direccion, latitud, longitud, addInfo, user_email }, (err, result) => {
         if (err) {
             console.error('Error adding apartment:', err);
             return res.status(500).send('Error adding apartment');
         }
-        
         const apartmentId = result.insertId;
-        
+
         // Si se subieron múltiples imágenes (upload.array)
         if (req.files && req.files.length > 0) {
             let imagesProcessed = 0;
@@ -85,7 +82,7 @@ exports.updateApartment = (req, res) => {
     // Obtener los nuevos archivos enviados (con upload.array('new_images'))
     const newImages = req.files; // Array de archivos nuevos
 
-    // Ahora se incluye el campo existing_images para que el modelo lo procese
+    // Campo existing_images para que el modelo lo procese
     Apartment.updateApartment(id_apt, { 
         direccion_apt, 
         barrio, 

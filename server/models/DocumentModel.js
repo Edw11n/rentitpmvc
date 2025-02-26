@@ -1,12 +1,6 @@
 const db = require('../config/db');
 
 class Document {
-    /**
- * Obtiene la información completa de un apartamento por su ID.
- * Se unen las tablas de barrio, usuario y las imágenes asociadas.
- * @param {number} id - El ID del apartamento.
- * @param {function} callback - Callback que recibe (error, results).
- */
     static getApartmentById(id, callback) {
         const query = `
         SELECT
@@ -39,5 +33,4 @@ class Document {
         });
     }
 }      
-
 module.exports = Document;

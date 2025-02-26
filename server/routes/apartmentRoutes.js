@@ -14,64 +14,19 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage: storage });
-// Rutas para la gestión de apartamentos
 
-/**
- * Ruta para subir una imagen de un apartamento.
- * Método: POST
- * Endpoint: /uploadImage/:id_apt
-*/
 router.post('/uploadImage/:id_apt', upload.array('images'), ApartmentController.uploadImage);
 
-/*
- * Ruta para agregar un nuevo apartamento con imagen.
- * Método: POST
- * Endpoint: /addApartment
- * Controlador: ApartmentController.addApartment
- */
 router.post('/addApartment', upload.array('images'), ApartmentController.addApartment);
 
-/**
- * Ruta para obtener los apartamentos de un arrendador.
- * Método: GET
- * Endpoint: /manage
- * Controlador: ApartmentController.getApartmentsByLessor
- */
-router.get('/manage', ApartmentController.getApartmentsByLessor);
-
-/**
- * Ruta para actualizar un apartamento existente.
- * Método: PUT
- * Endpoint: /update/:id_apt
- * Parámetro: id_apt (ID del apartamento que se desea actualizar)
- * Controlador: ApartmentController.updateApartment
- */
 router.put('/update/:id_apt', upload.array("new_images"), ApartmentController.updateApartment);
 
-/**
- * Ruta para eliminar un apartamento.
- * Método: DELETE
- * Endpoint: /delete/:id_apt
- * Parámetro: id_apt (ID del apartamento que se desea eliminar)
- * Controlador: ApartmentController.deleteApartment
- */
+router.get('/manage', ApartmentController.getApartmentsByLessor);
+
 router.delete('/delete/:id_apt', ApartmentController.deleteApartment);
 
-/**
- * Ruta para obtener todos los apartamentos.
- * Método: GET
- * Endpoint: /getapts
- * Controlador: ApartmentController.getAllApartments
- */
 router.get('/getapts', ApartmentController.getAllApartments);
 
-/**
- * Ruta para obtener información de los marcadores del mapa.
- * Método: GET
- * Endpoint: /getMarkersInfo
- * Controlador: ApartmentController.getMarkersInfo
- */
 router.get('/getMarkersInfo', ApartmentController.getMarkersInfo);
 
-// Exportación del router para usarlo en la aplicación principal
 module.exports = router;

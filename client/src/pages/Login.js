@@ -28,7 +28,7 @@ function Login() {
         }
     };
 
-    return (
+    return (  
         <div className="container login-container">
             <FontAwesomeIcon icon={faTimes} className="exit-icon-login" onClick={goToHome} />
             
@@ -56,7 +56,6 @@ function Login() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    
                     <button className="in-button" onClick={handleSubmit}>Acceder a mi cuenta</button>
                     
                     {message && <p className="error-message">{message}</p>}
