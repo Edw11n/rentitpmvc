@@ -1,7 +1,7 @@
 // Importación de módulos necesarios
 const express = require('express'); // Framework para manejar rutas y peticiones HTTP
 const router = express.Router(); // Router para agrupar y manejar rutas
-const ApartmentController = require('../controllers/ApartmentController'); // Controlador que gestiona la lógica de los apartamentos
+const ApartmentController = require('../controllers/apartmentController'); // Controlador que gestiona la lógica de los apartamentos
 const multer = require('multer'); // Middleware para subir archivos
 const path = require('path'); // Módulo para manejar rutas de archivos
 
