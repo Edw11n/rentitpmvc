@@ -1,7 +1,7 @@
 // Importación de módulos necesarios
 const express = require('express'); // Framework para manejar rutas y peticiones HTTP
 const router = express.Router(); // Router para agrupar y manejar rutas
-const LessorController = require('../controllers/LessorController'); // Controlador para manejar la lógica de los arrendadores
+const LessorController = require('../controllers/lessorController'); // Controlador para manejar la lógica de los arrendadores
 
 // Rutas para la gestión de arrendadores
 
