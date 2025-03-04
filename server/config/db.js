@@ -2,10 +2,10 @@ const mysql = require('mysql2');
 
 // Crear una conexión a la base de datos
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: 'mysql.railway.internal',
     user: 'root',
-    password: '', 
-    database: 'rentitpdb',
+    password: 'eeSJzgtRnzznXGFCxDZgOjEKyIVGWsmE', 
+    database: 'railway',
     port: 3306
 });
 
