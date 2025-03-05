@@ -138,12 +138,14 @@ exports.deleteApartment = (req, res) => {
 exports.getAllApartments = (req, res) => {
     Apartment.getAllApartments((err, results) => {
         if (err) {
-            console.error('Error obteniendo apartamentos', err); // Registro de error
-            return res.status(500).send('Error al obtener los apartamentos'); // Respuesta de error en el cliente
+            console.error('Error obteniendo apartamentos', err);
+            return res.status(500).send('Error al obtener los apartamentos');
         }
-        res.json(results); // Respuesta exitosa con los datos en formato JSON
+        console.log("Resultados obtenidos:", results); // <-- Verifica que sea un array
+        res.json(Array.isArray(results) ? results : []); // Asegura que siempre se envía un array
     });
-}
+};
+
 
 // Controlador para obtener 
 exports.getMarkersInfo = (req, res) => {
