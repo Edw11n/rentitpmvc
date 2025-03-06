@@ -7,7 +7,8 @@ const path = require('path');
 
 const app = express();
 app.use(cors({
-    origin: "https://rentitp.vercel.app/",
+    origin: "*",
+    methods: "GET,POST,PUT,DELETE",
     credentials: true
 }));
 app.use(express.json());
