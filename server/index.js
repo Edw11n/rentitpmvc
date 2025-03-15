@@ -4,7 +4,6 @@ const lessorRoutes = require('./routes/lessorRoutes');
 const apartmentRoutes = require('./routes/apartmentRoutes');
 const DocumentRoutes = require('./routes/DocumentRoutes');
 const path = require('path');
-const asd = adadad
 
 const app = express();
 app.use(cors({
